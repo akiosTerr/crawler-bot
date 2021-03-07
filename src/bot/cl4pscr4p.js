@@ -48,7 +48,7 @@ Cl4pScr4p.prototype = {
 			const value = await page.evaluate(x => x.textContent, elem)
 			return value
 		})
-		return values
+		return Promise.all(values)
 	},
 	getAttFromElements: async (elements, selector) => {
 		const page = this.current_page
@@ -57,7 +57,7 @@ Cl4pScr4p.prototype = {
 			const value = await page.evaluate(x => x.getAttribute('src'), elem)
 			return value
 		})
-		return values
+		return Promise.all(values)
 	},
 	getPropFromElements: async (elements, selector) => {
 		const values = elements.map(async(eh) => {

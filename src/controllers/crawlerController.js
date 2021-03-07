@@ -26,24 +26,20 @@ const fetch = async (req, res) => {
     const prices = await cs.getValuesFromElements(elements, constants.priceSelector)
     const images = await cs.getAttFromElements(elements, constants.imageSelector)
 
-    const _titles = await Promise.all(titles)
-    const _descriptions = await Promise.all(descriptions)
-    const _prices = await Promise.all(prices)
-    const _images = await Promise.all(images)
-
 
     let rooms = []
     for (let i = 0; i < elements.length; i++) {
         const adRoom = {
-            title: _titles[i],
-            description: _descriptions[i],
-            price: _prices[i],
-            image: constants.baseUrl + _images[i]
+            title: titles[i],
+            description: descriptions[i],
+            price: prices[i],
+            image: constants.baseUrl + images[i]
         }
         rooms.push(adRoom)
     }
 
-    console.log('finished!');
+    cs.closeBrowser()
+    console.log('finished!')
 
     return res.json(rooms)
 }
