@@ -1,0 +1,35 @@
+{
+  "name": "crawler-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "concurrently --kill-others \"npm run server\" \"npm run client\"",
+    "server": "nodemon src/server.js",
+    "client": "node src/launcher.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akiosTerr/crawler-bot.git"
+  },
+  "keywords": [
+    "bot"
+  ],
+  "author": "akios",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/akiosTerr/crawler-bot/issues"
+  },
+  "homepage": "https://github.com/akiosTerr/crawler-bot#readme",
+  "dependencies": {
+    "chrome-launcher": "^0.13.4",
+    "concurrently": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "puppeteer": "^8.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
